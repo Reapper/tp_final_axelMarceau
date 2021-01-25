@@ -1,0 +1,23 @@
+---
+- name: Playbook installation NGINX
+  hosts: web
+  remote_user: root
+  tasks:
+    - name: "Installation NGINX"
+      become: yes 
+      apt: 
+        name=nginx 
+        update_cache=yes
+
+    - name: "Git clone repo"
+      become: yes
+      git:
+        repo: 'https://github.com/Reapper/tp_final_devops_nginx.git'
+        dest: /var/www/html
+          
+  handlers:
+    - name: "Start NGINX"
+      service:
+        name=nginx
+        state=started
+...
