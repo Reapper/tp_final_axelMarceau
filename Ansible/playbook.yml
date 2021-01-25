@@ -1,6 +1,7 @@
 ---
 - name: Playbook installation NGINX
-  hosts: web
+#  hosts: web
+  hosts: 127.0.0.1 # logique d'ansible ¯\_(ツ)_/¯
   remote_user: root
   tasks:
     - name: "Installation NGINX"
